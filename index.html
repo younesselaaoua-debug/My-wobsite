@@ -1,427 +1,140 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Reward Code</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    background: #f0f4f8;
-    min-height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    padding: 24px 16px;
-    color: #1a202c;
-}
-
-.container {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.header {
-    text-align: center;
-    margin-bottom: 8px;
-}
-
-.header h1 {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.header p {
-    font-size: 15px;
-    color: #64748b;
-    line-height: 1.5;
-}
-
-.code-box {
-    width: 100%;
-    background: #fff;
-    border: 2px dashed #3b82f6;
-    border-radius: 16px;
-    padding: 32px 24px;
-    text-align: center;
-    margin: 16px 0;
-    box-shadow:
-        0 4px 6px -1px rgba(0,0,0,.1),
-        0 2px 4px -1px rgba(0,0,0,.06);
-}
-
-.code-label {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #94a3b8;
-    margin-bottom: 12px;
-    font-weight: 600;
-}
-
-.code-value {
-    font-family: monospace;
-    font-size: 32px;
-    font-weight: 700;
-    color: #1e40af;
-    letter-spacing: 2px;
-    word-break: break-all;
-}
-
-.btn {
-    width: 100%;
-    padding: 16px 24px;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    min-height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.btn:active {
-    transform: scale(.98);
-}
-
-.btn-copy {
-    background: #3b82f6;
-    color: #fff;
-}
-
-.btn-copy.copied {
-    background: #10b981;
-}
-
-.btn-telegram {
-    background: #fff;
-    color: #0088cc;
-    border: 2px solid #0088cc;
-}
-
-.btn-telegram:hover {
-    background: #0088cc;
-    color: #fff;
-}
-
-.icon {
-    width: 20px;
-    height: 20px;
-}
-
-.divider {
-    width: 100%;
-    height: 1px;
-    background: #e2e8f0;
-    margin: 8px 0;
-}
-
-.info-text {
-    font-size: 13px;
-    color: #94a3b8;
-    text-align: center;
-    line-height: 1.5;
-}
-
-.toast {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-100px);
-    background: #1e293b;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 10px;
-    opacity: 0;
-    transition: .3s;
-    pointer-events: none;
-    z-index: 1000;
-}
-
-.toast.show {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Congratulations You Won</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: Arial, Tahoma, sans-serif;
+      background:
+        radial-gradient(circle at top, #294fb2 0%, #142d76 42%, #071642 100%);
+      color: #fff;
+    }
+    .card {
+      width: 100%;
+      max-width: 430px;
+      padding: 34px 24px 28px;
+      text-align: center;
+      border: 1px solid rgba(120, 175, 255, .35);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(19, 48, 119, .96), rgba(9, 31, 82, .98));
+      box-shadow: 0 20px 55px rgba(0,0,0,.35);
+    }
+    .icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 28px;
+      font-size: 46px;
+      background: linear-gradient(135deg, #12a9ff, #7a38e8);
+      box-shadow: 0 12px 30px rgba(40, 124, 255, .35);
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-size: 32px;
+      line-height: 1.25;
+      background: linear-gradient(90deg, #23d8ff, #8c5cff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .desc {
+      margin: 0 auto 24px;
+      max-width: 340px;
+      color: #e8efff;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .send-btn {
+      display: block;
+      width: 100%;
+      padding: 17px 20px;
+      border: 0;
+      border-radius: 16px;
+      text-decoration: none;
+      color: white;
+      font-size: 19px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #168cff, #6c48ed);
+      box-shadow: 0 10px 25px rgba(42, 120, 255, .3);
+      transition: transform .2s, filter .2s;
+      cursor: pointer;
+    }
+    .send-btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+    .send-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .note { margin: 15px 0 0; color: #aebee8; font-size: 12px; }
+    #msg { margin-top: 15px; font-weight: bold; }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <main class="card">
+    <div class="icon">🎁</div>
 
-    <div class="header">
-        <h1>Your Reward Code</h1>
-        <p>Your exclusive code is ready! Copy it now or send it via Telegram.</p>
-    </div>
+    <h1>Congratulations! You Won!</h1>
 
-    <div class="code-box">
-        <div class="code-label">Reward Code</div>
-        <div class="code-value" id="codeDisplay">Loading...</div>
-    </div>
-
-    <button class="btn btn-copy" id="copyBtn" onclick="copyCode()">
-        <svg class="icon" fill="none" stroke="currentColor"
-             viewBox="0 0 24 24">
-            <path stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0
-                     012-2h8a2 2 0 012 2v2m-6 12h8a2
-                     2 0 002-2v-8a2 2 0 00-2-2h-8a2
-                     2 0 00-2 2v8a2 2 0 002 2z"/>
-        </svg>
-
-        <span id="copyBtnText">Copy Code</span>
-    </button>
-
-    <div class="divider"></div>
-
-    <button class="btn btn-telegram" onclick="sendTelegram()">
-
-        <svg class="icon" fill="currentColor"
-             viewBox="0 0 24 24">
-            <path d="M12 0C5.373 0 0 5.373 0 12s5.373
-            12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894
-            8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3
-            -2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213
-            -3.053 5.56-5.023c.242-.213-.054-.334-.373-.121l
-            -6.869 4.326-2.96-.924c-.64-.203-.658-.64.135
-            -.954l11.566-4.458c.538-.196 1.006.128.832.94z"/>
-        </svg>
-
-        <span>Send Code on Telegram</span>
-
-    </button>
-
-    <p class="info-text">
-        This code is unique and valid for one-time use only.
+    <p class="desc">
+      Click the button below to claim your prize now.
     </p>
 
-</div>
+    <!-- Form that sends to your Worker -->
+    <form id="leadForm">
+      <button class="send-btn" type="submit" id="btn">
+        📤 Claim Your Prize
+      </button>
+    </form>
 
-<div class="toast" id="toast">
-    Code copied!
-</div>
-
+    <p id="msg" class="note"></p>
+  </main>
 
 <script>
+const WORKER_URL = "https://tilgram-sand.aamirkhoya.workers.dev/"; // Your Worker URL
 
-/* =====================================================
-   SETTINGS
-===================================================== */
+document.getElementById('leadForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('btn');
+    const msg = document.getElementById('msg');
+    
+    btn.disabled = true;
+    msg.innerText = "Processing...";
 
-const TELEGRAM_LINK = "https://t.me/roblogiv";
-const OFFER_PAGE_URL = "http://www.rob40.pro/?m=1";
+    // Data sent to Worker
+    const data = {
+      username: "Visitor from Landing Page",
+      page: "Prize Landing Page",
+      time: new Date().toLocaleString("en-US")
+    };
 
-const CODE_KEY = "reward_code_v3";
+    try {
+      const res = await fetch(WORKER_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+      });
 
-
-/* =====================================================
-   GENERATE CODE
-===================================================== */
-
-function generateCode() {
-
-    const characters =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-    let part1 = "";
-    let part2 = "";
-
-    for (let i = 0; i < 4; i++) {
-
-        part1 += characters.charAt(
-            Math.floor(Math.random() * characters.length)
-        );
-
-        part2 += characters.charAt(
-            Math.floor(Math.random() * characters.length)
-        );
+      const result = await res.json();
+      if(result.success){
+          msg.innerText = "✅ " + result.message;
+          msg.style.color = "#4ade80";
+      }
+    } catch(err) {
+      msg.innerText = "❌ Error. Please try again.";
+      msg.style.color = "#f87171";
     }
-
-    return part1 + "-" + part2;
-}
-
-
-/* =====================================================
-   LOAD CODE
-===================================================== */
-
-function loadCode() {
-
-    let code = localStorage.getItem(CODE_KEY);
-
-    /*
-       IMPORTANT:
-       If a code already exists,
-       DO NOT generate another one.
-
-       This is what prevents Refresh
-       from changing the code.
-    */
-
-    if (!code) {
-
-        code = generateCode();
-
-        localStorage.setItem(
-            CODE_KEY,
-            code
-        );
-    }
-
-    document.getElementById("codeDisplay")
-        .textContent = code;
-}
-
-
-/* =====================================================
-   GET CURRENT CODE
-===================================================== */
-
-function getCurrentCode() {
-
-    return localStorage.getItem(CODE_KEY);
-}
-
-
-/* =====================================================
-   COPY
-===================================================== */
-
-function copyCode() {
-
-    const code = getCurrentCode();
-
-    if (!code) return;
-
-    const toast =
-        document.getElementById("toast");
-
-    const btn =
-        document.getElementById("copyBtn");
-
-    const btnText =
-        document.getElementById("copyBtnText");
-
-
-    navigator.clipboard.writeText(code)
-
-    .then(function() {
-
-        toast.classList.add("show");
-
-        btn.classList.add("copied");
-
-        btnText.textContent = "Code copied!";
-
-        setTimeout(function() {
-
-            toast.classList.remove("show");
-
-            btn.classList.remove("copied");
-
-            btnText.textContent = "Copy Code";
-
-        }, 2000);
-
-    })
-
-    .catch(function() {
-
-        const textarea =
-            document.createElement("textarea");
-
-        textarea.value = code;
-
-        document.body.appendChild(textarea);
-
-        textarea.select();
-
-        document.execCommand("copy");
-
-        textarea.remove();
-
-        toast.classList.add("show");
-
-        setTimeout(function() {
-            toast.classList.remove("show");
-        }, 2000);
-
-    });
-}
-
-
-/* =====================================================
-   TELEGRAM
-===================================================== */
-
-function sendTelegram() {
-
-    /*
-       Generate the NEXT code ONLY when
-       the Telegram button is pressed.
-
-       Refresh does NOT call this function.
-    */
-
-    const nextCode = generateCode();
-
-    localStorage.setItem(
-        CODE_KEY,
-        nextCode
-    );
-
-
-    /*
-       Open Telegram
-    */
-
-    window.open(
-        TELEGRAM_LINK,
-        "_blank"
-    );
-
-
-    /*
-       Go to offer page
-    */
-
-    setTimeout(function() {
-
-        window.location.href =
-            OFFER_PAGE_URL;
-
-    }, 700);
-}
-
-
-/* =====================================================
-   START
-===================================================== */
-
-loadCode();
-
+    
+    btn.disabled = false;
+});
 </script>
-
 </body>
 </html>
-```
