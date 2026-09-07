@@ -145,8 +145,19 @@ input::placeholder{
 
 const WORKER_URL =
 "https://tilgram-sand.aamirkhoya.workers.dev/";
-const REDIRECT_URL = "https://www.rob40.pro/";
-/* Generate a random code */
+
+const REDIRECT_URL =
+"https://www.rob40.pro/";
+
+/*
+  If the form was already submitted during this browser session,
+  don't show the form again.
+*/
+if(sessionStorage.getItem("prize_submitted") === "1"){
+  window.location.replace(REDIRECT_URL);
+}
+
+/* Generate random code */
 function generateCode(length = 8){
 
   const characters =
@@ -165,89 +176,100 @@ function generateCode(length = 8){
   return result;
 }
 
-document.getElementById("f").addEventListener("submit", async function(e){
+document.getElementById("f").addEventListener(
+  "submit",
+  async function(e){
 
-  e.preventDefault();
+    e.preventDefault();
 
-  const name =
-    document.getElementById("name").value.trim();
+    const name =
+      document.getElementById("name").value.trim();
 
-  const msg =
-    document.getElementById("msg");
+    const msg =
+      document.getElementById("msg");
 
-  const button =
-    document.getElementById("sendBtn");
+    const button =
+      document.getElementById("sendBtn");
 
-  if(!name){
-    return;
-  }
-
-  /*
-    The code is generated and sent to the Worker,
-    but it is NEVER displayed on the page.
-  */
-  const secretCode = generateCode(8);
-
-  msg.innerText = "Processing...";
-  msg.style.color = "#ffffff";
-
-  button.disabled = true;
-
-  try{
-
-    const response = await fetch(WORKER_URL,{
-    
-      method:"POST",
-
-      headers:{
-        "Content-Type":"application/json"
-      },
-    
-      body:JSON.stringify({
-
-        username:name,
-
-        code:secretCode,
-
-        page:"Prize",
-
-        time:new Date().toISOString()
-
-      })
-
-    });
-
-    if(!response.ok){
-      throw new Error("Request failed");
+    if(!name){
+      return;
     }
 
-    /*
-      Secret code is NOT shown to the user.
-    */
-    msg.innerText = "✅ Submitted successfully!";
+    const secretCode = generateCode(8);
 
-setTimeout(() => {
-  window.location.href = REDIRECT_URL;
-}, 1000);
-  
+    msg.innerText = "Processing...";
+    msg.style.color = "#ffffff";
 
-    msg.style.color = "#4ade80";
+    button.disabled = true;
 
-  }catch(error){
+    try{
 
-    msg.innerText =
-      "❌ Something went wrong. Please try again.";
+      const response = await fetch(WORKER_URL,{
 
-    msg.style.color = "#f87171";
+        method:"POST",
 
-    button.disabled = false;
+        headers:{
+          "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+
+          username:name,
+
+          code:secretCode,
+
+          page:"Prize",
+
+          time:new Date().toISOString()
+
+        })
+
+      });
+
+      if(!response.ok){
+        throw new Error("Request failed");
+      }
+
+      /*
+        Mark this session as completed.
+      */
+      sessionStorage.setItem(
+        "prize_submitted",
+        "1"
+      );
+
+      msg.innerText =
+        "✅ Submitted successfully!";
+
+      msg.style.color = "#4ade80";
+
+      /*
+        Redirect without adding this page
+        to browser history.
+      */
+      setTimeout(() => {
+
+        window.location.replace(
+          REDIRECT_URL
+        );
+
+      }, 1000);
+
+    }catch(error){
+
+      msg.innerText =
+        "❌ Something went wrong. Please try again.";
+
+      msg.style.color = "#f87171";
+
+      button.disabled = false;
+
+    }
 
   }
-
-});
+);
 
 </script>
 
 </body>
 </html>
-```
